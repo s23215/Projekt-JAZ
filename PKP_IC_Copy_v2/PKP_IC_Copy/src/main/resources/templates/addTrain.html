@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PKP IC ADMIN</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<a th:href="@{/train}">Home</a>
+<form method="post" th:action="@{/add/trains}" th:object="${train}">
+    <table>
+        <tr>
+            <td><label>Type</label></td>
+            <td><input type="text" th:field="${train.type}"></td>
+        </tr>
+        <tr>
+            <td><label>Depart</label></td>
+            <td><input type="time" th:field="${train.depart}"></td>
+        </tr>
+        <tr>
+            <td><label>Arrival</label></td>
+            <td><input type="time" th:field="${train.arrive}"></td>
+        </tr>
+        <tr>
+            <td><label>Price</label></td>
+            <td><input type="number" th:step="0.01" th:field="${train.price}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+<footer th:insert="adminLinks.html"></footer>
+
+</body>
+</html>

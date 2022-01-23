@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PKP IC</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div>
+        <div>
+            <h1>Welcome to the simple travel agency</h1>
+        </div>
+    </div>
+    <div>
+        <h2>Choose your departure station:</h2>
+        <form method="post" th:action="@{/trains}" th:object="${train}">
+            <select name="start">
+                <option th:field="${train.start}" value="Gdańsk">Gdańsk</option>
+                <option th:field="${train.start}" value="Gdynia">Gdynia</option>
+                <option th:field="${train.start}" value="Warszawa">Warszawa</option>
+                <option th:field="${train.start}" value="Wrocław">Wrocław</option>
+                <option th:field="${train.start}" value="Kraków">Kraków</option>
+                <option th:field="${train.start}" value="Poznań">Poznań</option>
+            </select>
+            <p></p>
+            <h2>Choose your destination city:</h2>
+            <select name="end">
+                <option th:field="${train.end}" value="Łódź">Łódź</option>
+                <option th:field="${train.end}" value="Szczecin">Szczecin</option>
+                <option th:field="${train.end}" value="Katowice">Katowice</option>
+                <option th:field="${train.end}" value="Białystok">Białystok</option>
+                <option th:field="${train.end}" value="Olsztyn">Olsztyn</option>
+                <option th:field="${train.end}" value="Elbląg">Elbląg</option>
+            </select>
+            <p></p>
+            <div>
+                <input type="submit" value="Find Trains"/>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

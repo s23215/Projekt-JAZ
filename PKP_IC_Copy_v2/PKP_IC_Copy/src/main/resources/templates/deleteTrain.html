@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PKP IC ADMIN</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<a th:href="@{/train}">Home</a>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Train</th>
+            <th>Departs</th>
+            <th>Arrives</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="train: ${trains}">
+            <form name="simpleForm" th:action="@{/delete/trains}" method="post" >
+                <td><input type="hidden" th:value="${train.id}" name="id"><span th:text="${train.id}"></span> </td>
+                <td><input type="hidden" th:value="${train.type}" name="type"><span th:text="${train.type}"></span> </td>
+                <td><input type="hidden" th:value="${train.depart}" name="depart"><span th:text="${train.depart}"></span></td>
+                <td><input type="hidden" th:value="${train.arrive}" name="arrive"><span th:text="${train.arrive}"></span></td>
+                <td><input type="hidden" th:value="${train.price}" name="price"><span th:text="${train.price}"></span></td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <form method="post" th:action="@{/delete/trains}" th:object="${trainDTO}">
+        <tr>
+            <td><label>Id</label></td>
+            <td><input type="number" th:field="${trainDTO.id}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Delete"></td>
+        </tr>
+    </form>
+</div>
+<footer th:insert="adminLinks.html"></footer>
+
+</body>
+</html>

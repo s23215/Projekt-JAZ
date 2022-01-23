@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PKP IC</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div th:object="${train}" >
+        <a th:href="@{/listOfTrains}"><input type="submit" value="Back"></a>
+
+        <p>Train: <span th:text="${train.type}"></span> </p>
+        <p>Departs: <span th:text="${train.depart}"></span></p>
+        <p>Arrives: <span th:text="${train.arrive}"></span></p>
+        <p>Price: <span th:text="${train.price}"></span></p>
+        <hr>
+        <p>Please submit the form below to purshe the train</p>
+        <form method="post">
+            <div>
+                <label>Name</label>
+                <div>
+                    <input type="text" placeholder="First Last">
+                </div>
+            </div>
+            <div>
+                <label>Addres</label>
+                <div>
+                    <input type="text" placeholder="123 Main St.">
+                </div>
+            </div>
+            <div>
+                <label>City</label>
+                <div>
+                    <input type="text" placeholder="Anytown">
+                </div>
+            </div>
+            <div>
+                <label>Zip Code</label>
+                <div>
+                    <input type="text" placeholder="12-345">
+                </div>
+            </div>
+            <div>
+                <label>Card Type</label>
+                <div>
+                    <select>
+                        <option>Visa</option>
+                        <option>MasterCard</option>
+                        <option>Blik</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label>Credit Card Number</label>
+                <div>
+                    <input type="text" placeholder="Credit Card Number">
+                </div>
+            </div>
+            <div>
+                <label>Month</label>
+                <div>
+                    <input type="text" placeholder="Month" value="01">
+                </div>
+            </div>
+            <div>
+                <label>Year</label>
+                <div>
+                    <input type="text" placeholder="Year" value="2022">
+                </div>
+            </div>
+            <div>
+                <label>Name on Card</label>
+                <div>
+                    <input type="text" placeholder="Jan Kowalski">
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                </div>
+                <input type="submit" value="Purchase Train">
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PKP IC</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div th:object="${train}">
+        <a th:href="@{/train}"><input type="submit" value="Back"></a>
+        <h3>Trains from <span th:text="${train.start}"></span> to <span th:text="${train.end}"></span> </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Choose</th>
+                    <th>Train</th>
+                    <th>Departs: <span th:text="${train.start}"></span> </th>
+                    <th>Arrives: <span th:text="${train.end}"></span> </th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="train: ${trains}">
+                <form name="simpleForm" th:action="@{/listOfTrains}" method="post" >
+                    <td><input type="submit" value="Choose This Train"></td>
+                    <input type="hidden" th:value="${train.id}" name="id">
+                    <td><input type="hidden" th:value="${train.type}" name="type"><span th:text="${train.type}"></span> </td>
+                    <td><input type="hidden" th:value="${train.depart}" name="depart"><span th:text="${train.depart}"></span></td>
+                    <td><input type="hidden" th:value="${train.arrive}" name="arrive"><span th:text="${train.arrive}"></span></td>
+                    <td><input type="hidden" th:value="${train.price}" name="price"><span th:text="${train.price}"></span></td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

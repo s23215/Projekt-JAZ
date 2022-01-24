@@ -100,6 +100,4 @@ public class TrainController {
         trainService.deleteTrainFromRepo(trainDTO.getId());
         return "redirect:/delete/train";
     }
-
 }
-
